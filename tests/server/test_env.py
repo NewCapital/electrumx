@@ -140,6 +140,26 @@ def test_COIN_NET():
     os.environ['COIN'] = ' TokenPay '
     e = Env()
     assert e.coin == lib_coins.TokenPay
+    os.environ['NET'] = 'mainnet'
+    e = Env()
+    os.environ.pop('NET')
+    os.environ['COIN'] = ' TWINS '
+    os.environ['NET'] = 'mainnet'
+    e = Env()
+    assert e.coin == lib_coins.TWINS
+    os.environ['NET'] = 'testnet'
+    e = Env()
+    assert e.coin == lib_coins.TWINSTestnet
+    os.environ['NET'] = 'mainnet'
+    e = Env()
+    os.environ.pop('NET')
+    os.environ['COIN'] = ' FIX '
+    os.environ['NET'] = 'mainnet'
+    e = Env()
+    assert e.coin == lib_coins.FIX
+    os.environ['NET'] = 'testnet'
+    e = Env()
+    assert e.coin == lib_coins.FIXTestnet
 
 def test_CACHE_MB():
     assert_integer('CACHE_MB', 'cache_MB', 1200)

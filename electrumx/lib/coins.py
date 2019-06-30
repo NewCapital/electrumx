@@ -3088,3 +3088,119 @@ class Bellcoin(Coin):
         '''Given a header return the hash.'''
         import bell_yespower
         return bell_yespower.getPoWHash(header)
+
+class TWINS(Coin):
+    NAME = "TWINS"
+    SHORTNAME = "TWINS"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("022D2533")
+    XPRV_VERBYTES = bytes.fromhex("0221312B")
+    P2PKH_VERBYTE = bytes.fromhex("49")
+    P2SH_VERBYTES = [bytes.fromhex("53")]
+    WIF_BYTE = bytes.fromhex("42")
+    GENESIS_HASH = ('0000071cf2d95aec5ba4818418756c93'
+                    'cb12cd627191710e8969f2f35c3530de')
+    HDR_V4_SIZE = 112
+    TX_COUNT = 305738
+    TX_COUNT_HEIGHT = 117250
+    TX_PER_BLOCK = 2
+    RPC_PORT = 37818
+    BLACKLIST_URL = 'https://new.capital/electrum_blacklist.json'
+    PEER_DEFAULT_PORTS = {'t': '59701', 's': '59702'}
+    # PEERS = [
+    #     # 'electrumx1.win.win s',
+    #     # 'electrumx2.win.win s',
+    # ]
+
+    @classmethod
+    def static_header_offset(cls, height):
+        assert cls.STATIC_BLOCK_HEADERS
+        return height * cls.HDR_V4_SIZE
+
+    @classmethod
+    def header_hash(cls, header):
+        version, = util.unpack_le_uint32_from(header)
+        if version >= 4:
+            return super().header_hash(header)
+        else:
+            import quark_hash
+            return quark_hash.getPoWHash(header)
+
+class TWINSTestnet(TWINS):
+    SHORTNAME = "tTWINS"
+    NET = "testnet"
+    XPUB_VERBYTES = bytes.fromhex("3a8061a0")
+    XPRV_VERBYTES = bytes.fromhex("3a805837")
+    P2PKH_VERBYTE = bytes.fromhex("4C")
+    P2SH_VERBYTES = [bytes.fromhex("89")]
+    WIF_BYTE = bytes.fromhex("ED")
+    GENESIS_HASH = (
+        '00000c538590ec8fc7c6725262788f25cb5cd4aa3120f1fcb4fe5f135f6a0eeb')
+    HDR_V4_SIZE = 112
+    TX_COUNT = 48791
+    TX_COUNT_HEIGHT = 24498
+    TX_PER_BLOCK = 2
+    RPC_PORT = 37820
+    PEER_DEFAULT_PORTS = {'t': '59703', 's': '59704'}
+    # PEERS = [
+    #     # 'electrumx1.testnet.win.win s59704',
+    #     # 'electrumx2.testnet.win.win s59704',
+    # ]
+
+class FIX(Coin):
+    NAME = "FIX"
+    SHORTNAME = "FIX"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("022D2533")
+    XPRV_VERBYTES = bytes.fromhex("0221312B")
+    P2PKH_VERBYTE = bytes.fromhex("23")
+    P2SH_VERBYTES = [bytes.fromhex("5F")]
+    WIF_BYTE = bytes.fromhex("3C")
+    GENESIS_HASH = ('000000428366d3a156c38c5061d74317'
+                    'd201781f539460aeeeaae1091de6e4cc')
+    HDR_V4_SIZE = 112
+    TX_COUNT = 41286
+    TX_COUNT_HEIGHT = 20010
+    TX_PER_BLOCK = 2
+    RPC_PORT = 17465
+    BLACKLIST_URL = 'https://new.capital/electrum_blacklist.json'
+    PEER_DEFAULT_PORTS = {'t': '53361', 's': '53362'}
+    # PEERS = [
+    #     # 'electrumx1.fix.network s',
+    #     # 'electrumx2.fix.network s',
+    # ]
+
+    @classmethod
+    def static_header_offset(cls, height):
+        assert cls.STATIC_BLOCK_HEADERS
+        return height * cls.HDR_V4_SIZE
+
+    @classmethod
+    def header_hash(cls, header):
+        version, = util.unpack_le_uint32_from(header)
+        if version >= 4:
+            return super().header_hash(header)
+        else:
+            import quark_hash
+            return quark_hash.getPoWHash(header)
+
+class FIXTestnet(FIX):
+    SHORTNAME = "tFIX"
+    NET = "testnet"
+    XPUB_VERBYTES = bytes.fromhex("3a8061a0")
+    XPRV_VERBYTES = bytes.fromhex("3a805837")
+    P2PKH_VERBYTE = bytes.fromhex("4C")
+    P2SH_VERBYTES = [bytes.fromhex("89")]
+    WIF_BYTE = bytes.fromhex("ED")
+    GENESIS_HASH = (
+        '000002849e7ad33536de6c50b3efb55fe8f20f219de408be70a6614c105e6bff')
+    HDR_V4_SIZE = 112
+    TX_COUNT = 38315
+    TX_COUNT_HEIGHT = 19086
+    TX_PER_BLOCK = 2
+    RPC_PORT = 17467
+    PEER_DEFAULT_PORTS = {'t': '53363', 's': '53364'}
+    # PEERS = [
+    #     # 'electrumx1.testnet.fix.network s53364',
+    #     # 'electrumx2.testnet.fix.network s53364',
+    # ]

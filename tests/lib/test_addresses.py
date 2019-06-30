@@ -73,6 +73,10 @@ addresses = [
      "1886c1b26e9546e8d424eb79631ee68de134466b", "2a9d25cb0c9f05690bff89"),
     (coins.PeercoinTestnet, "msnHPXDWuJhRBPVNQnwXdKvEMQHLr9z1P5",
      "8687b01c03f47615226bdf54443f172d8eb523c6", "318a000ccf626685c8c213"),
+    (coins.TWINS, "WZ9LAdTMZWziu5dpKPtR3ZNGrmNSfw6dFP",
+     "72daeb899010ac59c31f97c8b428b39ee76608e0", "d617b59f6f95d871a5d44c"),
+    (coins.FIX, "F9UJyg9js1eyhX1kRqY9sbFZitFBoZ2Bsg",
+     "27f1615760d781f1631c5704c5dd902d15414875", "63dcb2b351e06a0c3ce343"),
 ]
 
 

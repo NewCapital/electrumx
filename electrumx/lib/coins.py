@@ -3107,10 +3107,12 @@ class TWINS(Coin):
     RPC_PORT = 37818
     BLACKLIST_URL = 'https://new.capital/electrum_blacklist.json'
     PEER_DEFAULT_PORTS = {'t': '59701', 's': '59702'}
-    # PEERS = [
-    #     # 'electrumx1.win.win s',
-    #     # 'electrumx2.win.win s',
-    # ]
+    PEERS = [
+        'electrumx1.win.win s',
+        'electrumx2.win.win s',
+        'electrumx3.win.win s',
+        'electrumx4.win.win s',
+    ]
 
     @classmethod
     def static_header_offset(cls, height):
@@ -3142,10 +3144,10 @@ class TWINSTestnet(TWINS):
     TX_PER_BLOCK = 2
     RPC_PORT = 37820
     PEER_DEFAULT_PORTS = {'t': '59703', 's': '59704'}
-    # PEERS = [
-    #     # 'electrumx1.testnet.win.win s59704',
-    #     # 'electrumx2.testnet.win.win s59704',
-    # ]
+    PEERS = [
+        'electrumx1.testnet.win.win s',
+        'electrumx2.testnet.win.win s',
+    ]
 
 class FIX(Coin):
     NAME = "FIX"
@@ -3165,10 +3167,12 @@ class FIX(Coin):
     RPC_PORT = 17465
     BLACKLIST_URL = 'https://new.capital/electrum_blacklist.json'
     PEER_DEFAULT_PORTS = {'t': '53361', 's': '53362'}
-    # PEERS = [
-    #     # 'electrumx1.fix.network s',
-    #     # 'electrumx2.fix.network s',
-    # ]
+    PEERS = [
+        'electrumx1.fix.network s',
+        'electrumx2.fix.network s',
+        'electrumx3.fix.network s',
+        'electrumx4.fix.network s',
+    ]
 
     @classmethod
     def static_header_offset(cls, height):
@@ -3200,7 +3204,7 @@ class FIXTestnet(FIX):
     TX_PER_BLOCK = 2
     RPC_PORT = 17467
     PEER_DEFAULT_PORTS = {'t': '53363', 's': '53364'}
-    # PEERS = [
-    #     # 'electrumx1.testnet.fix.network s53364',
-    #     # 'electrumx2.testnet.fix.network s53364',
-    # ]
+    PEERS = [
+        'electrumx1.testnet.fix.network s',
+        'electrumx2.testnet.fix.network s',
+    ]

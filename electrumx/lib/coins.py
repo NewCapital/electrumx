@@ -3113,6 +3113,8 @@ class TWINS(Coin):
         'electrumx3.win.win s',
         'electrumx4.win.win s',
     ]
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
 
     @classmethod
     def static_header_offset(cls, height):
@@ -3148,6 +3150,8 @@ class TWINSTestnet(TWINS):
         'electrumx1.testnet.win.win s',
         'electrumx2.testnet.win.win s',
     ]
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
 
 class FIX(Coin):
     NAME = "FIX"
@@ -3173,6 +3177,8 @@ class FIX(Coin):
         'electrumx3.fix.network s',
         'electrumx4.fix.network s',
     ]
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
 
     @classmethod
     def static_header_offset(cls, height):
@@ -3208,3 +3214,5 @@ class FIXTestnet(FIX):
         'electrumx1.testnet.fix.network s',
         'electrumx2.testnet.fix.network s',
     ]
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
